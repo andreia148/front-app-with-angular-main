@@ -1,0 +1,49 @@
+<mat-toolbar>
+    <span> Clientes </span>
+</mat-toolbar>
+<div>
+    <form>
+        <mat-form-field class="full-width">
+            <mat-label>Primeiro Nome: </mat-label>
+            <input [(ngModel)]="customer.firstNameCustomer" type="text" matInput name="firstNameCustomer"
+                placeholder="Digite seu primeiro nome" required />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Último Nome: </mat-label>
+            <input [(ngModel)]="customer.lastNameCustomer" type="text" matInput name="lastNameCustomer"
+                placeholder="Digite seu último nome" />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>CPF: </mat-label>
+            <input [(ngModel)]="customer.cpfCustomer" type="text" matInput name="cpfCustomer"
+                placeholder="Digite seu CPF" />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Data de Nascimento: </mat-label>
+            <input [(ngModel)]="customer.birthdateCustomer" type="date" matInput name="birthdateCustomer" placeholder="Digite sua data de nascimento" />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Renda Mensal: R$ </mat-label>
+            <input [(ngModel)]="customer.monthlyIncomeCustomer" type="number" matInput name="monthlyIncomeCustomer" placeholder="Digite a renda mensal" />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Email: </mat-label>
+            <input [(ngModel)]="customer.emailCustomer" type="email" matInput name="emailCustomer"
+                placeholder="Digite seu email" />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Senha: </mat-label>
+            <input [(ngModel)]="customer.passwordCustomer" type="password" matInput name="passwordCustomer"
+                placeholder="Digite sua senha" />
+        </mat-form-field>
+
+        <button (click)="saveCustomer()" mat-raised-button color="primeiro">Salvar</button>
+    </form>
+</div>
+<br />
+<div role="alert" *ngIf="success == true">
+    <span>Cliente {{customer.firstNameCustomer}} cadastro com sucesso! </span>
+</div>
+<div role="alert" *ngFor="let error of errors">
+    <span>{{ error }}</span>
+</div>
